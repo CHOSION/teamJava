@@ -1,0 +1,94 @@
+1. pip install django 
+​
+2. django-admin startproject config . 
+
+3. AWS에 데이터베이스 RDS 접속
+   - 파라메터그룹생성
+   - 데이터베이스 인스턴스생성
+
+4. AWS에 S3 버킷생성
+   - IAM 인증서 생성
+
+5. Mysql 워크벤치 접속확인.
+
+6. 파이참 접속설정
+   - pip install pymysql (모듈설치)
+
+6. settings.py
+   - 데이터베이스 적용
+
+7. python manage.py migrate
+
+8. python manage.py createsuperuser
+
+9. python manage.py runserver
+
+10. Storage 연결 - static 파일 설정
+
+11. pip install boto3
+    pip install django-storages
+
+12. settings.py 코드 추가 (스토레지관련)
+
+13. python manage.py collectstatic 
+
+14. 앱생성하기 
+    - python manage.py startapp shop
+
+    - settings.py 에 연결하기 
+    - 모델 >> python manage.py makemigrations 앱이름 
+      주의사항 이미지 필드 사용시 
+      pip install pillow 모듈설치
+    - 뷰
+    - urls 
+		> config/urls.py
+        > 앱이름폴더/urls.py (파일 생성후 작성)
+        > settings.py > TEMPLATES = []<< DIRS 내용을 수정합니다.
+    - 템플릿
+	> 프로젝트명 > templates/base.html
+    > 앱이름폴더 > templates/앱이름/템플릿파일.html
+
+
+15. 소셜로그인 추가하기
+	pip install django-allauth
+
+    > settings.py 관련코드 추가하기
+    > config/urls.py 관련코드 추가하기 
+
+    python manage.py migrate
+
+    templates/base.html >> 수정하기
+
+    관리자페이지에서 social applications 항목에서 네이버로고인추가하기
+
+
+16. Cart 기능 만들기
+    	python manage.py startapp cart
+    >> settings.py 관련코드 추가
+    >> cart/cart.py 생성후 코드 작성 (세션을 통한 처리)
+    >> settings.py 세션처리 코드 추가
+    >> cart/views.py 관련코드 추가
+    >> cart/forms.py 생성 후 관련코드 작성
+    >> cart/urls.py	생성후 코드 작성
+    >> config/urls.py 추가코드 작성
+    >> cart/templates/cart 폴더 작성후 detail.html 작성
+
+    >> shop/templates/detail.html 에 카트 추가하기 기능 추가
+	>> shop/views.py 관련코드 수정
+    >> templates/base.html 카트관련 코드 추가 
+    
+
+17. Coupon 기능 만들기
+    python manage.py startapp coupon
+	>> settings.py 관련코드 추가
+    >> models.py 관련코드 작성
+	python manage.py make migrations coupon
+	python manage.py migrate coupon
+    >> forms.py 생성 작성
+    >> views.py 작성
+	>> urls.py 생성 작성
+    >> admin.py 작성
+    >> config/urls.py 코드 추가
+    >> shop/templates/shop/detail.html 
+    >> cart/templates/cart/detail.html
+  
