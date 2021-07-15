@@ -1,4 +1,5 @@
 # teamJava
 
-pip install pillow
 pip install pymysql
+pip install boto3
+pip install django-storages
