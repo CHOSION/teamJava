@@ -25,7 +25,7 @@ class Movie(models.Model):
     image = models.ImageField(upload_to='movies/%Y/%m/%d', blank=True)
     description = models.TextField(blank=True)
     meta_description = models.TextField(blank=True)
-    # available_display = models.BooleanField('Display', default=True)
+    available_display = models.BooleanField('Display', default=True)
 
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
