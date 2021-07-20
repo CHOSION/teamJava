@@ -24,6 +24,11 @@ class Movie(models.Model):
     slug = models.SlugField(max_length=200, db_index=True, unique=True, allow_unicode=True)
     image = models.ImageField(upload_to='movies/%Y/%m/%d', blank=True)
     description = models.TextField(blank=True)
+    review = models.TextField(blank=True)
+    director = models.TextField(blank=True)
+    rating = models.TextField(blank=True)
+    open_date = models.TextField(blank=True)
+    youtube = models.URLField(blank=True)
     available_display = models.BooleanField('Display', default=True)
 
     created = models.DateTimeField(auto_now_add=True)
