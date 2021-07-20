@@ -22,5 +22,7 @@ def movie_detail(request, id, movie_slug=None):
     movie = get_object_or_404(Movie, id=id, slug=movie_slug)
     return render(request, 'taste/detail.html', {'movie':movie})
 
+def about_me(request):
+    return render(request, 'taste/about-me.html')
 
 
