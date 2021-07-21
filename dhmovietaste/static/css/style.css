@@ -17,17 +17,21 @@ CSS Styles Content Table
 /*===========
 Global Styles
 =============*/
+
 body {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Noto Sans KR','Playfair Display', serif;
 }
 
 h1, h2, h3, a, .btn{
-    font-family: 'Playfair Display', serif;
+    font-family: 'Noto Sans KR','Playfair Display', sans-serif;
     color: #252525;
 }
 
 h2 {
-    margin-bottom: 0;
+    font-family: 'Cafe24SsurroundAir';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24SsurroundAir.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
 
 h4, h5, h6, p {
@@ -478,7 +482,6 @@ box-shadow: inset 0px 0px 20px rgba(0,0,0,0.1), inset 0px 0px 20px rgba(0,0,0,0.
     display: flex;
     position: relative;
     overflow: hidden;
-    max-height: 340px;
 }
 
 .home-gallery .item-img {

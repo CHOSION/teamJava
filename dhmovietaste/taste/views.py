@@ -25,4 +25,6 @@ def movie_detail(request, id, movie_slug=None):
 def about_me(request):
     return render(request, 'taste/about-me.html')
 
+def contact(request):
+    return render(request, 'taste/contact.html')
 
