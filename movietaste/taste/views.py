@@ -1,11 +1,7 @@
 # import requests
-
-
 from django.shortcuts import render, get_object_or_404
 
-# Create your views here.
 from .models import *
-# from cart.forms import AddProductForm
 
 def movie_in_category(request, category_slug=None):
     current_category = None
@@ -24,5 +20,11 @@ def movie_in_category(request, category_slug=None):
 
 def movie_detail(request, id, movie_slug=None):
     movie = get_object_or_404(Movie, id=id, slug=movie_slug)
-    # add_to_cart = AddProductForm(initial={'quantity':1})
     return render(request, 'taste/detail.html', {'movie':movie})
+
+def about_me(request):
+    return render(request, 'taste/about-me.html')
+
+def contact(request):
+    return render(request, 'taste/contact.html')
+
