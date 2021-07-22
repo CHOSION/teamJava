@@ -1,4 +1,4 @@
-#!c:\users\admin\documents\github\teamjava\movietaste\venv\scripts\python.exe
+#!c:\users\admin\pycharmprojects\movietaste\venv\scripts\python.exe
 
 import sys
 import json

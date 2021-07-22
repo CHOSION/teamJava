@@ -9,4 +9,6 @@ urlpatterns = [
     path('<int:id>/<movie_slug>', movie_detail, name='movie_detail'),
     path('about-me', about_me, name='about_me'),
     path('contact', contact, name='contact'),
+    path('movies', movieplay, name='movies'),
+
 ]

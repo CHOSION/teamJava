@@ -5,10 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>JPhotography Minimal Photographey/Photographer Portolio</title>
+    <title>Movie Taste</title>
     <meta name="description" content="JPhotography Minimal Photographey/Photographer Portolio">
     {% load static %}
     <!-- Playfair Display - Raleway Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900|Raleway:100,300,400,600,700" rel="stylesheet">
 
     <!-- Bootstrap -->
@@ -40,16 +42,16 @@
         <div class="collapse navbar-collapse" id="navbarDefault">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="index.html">HOME <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="/">HOME <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="about-me.html">ABOUT ME</a>
+              <a class="nav-link" href="/movies">Movies</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="portfolio.html">Movies</a>
+              <a class="nav-link" href="/about-me">ABOUT US</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="contact.html">CONTACT</a>
+              <a class="nav-link" href="/contact">CONTACT</a>
             </li>
           </ul>
 
@@ -76,8 +78,11 @@
           </div>
           <div class="row">
             <div class="col-md-12">
-              <div class="project-holder">
+              <div class="project-holder" style = "float:left; width:45%;">
                 <img src="{{movie.image.url}}" alt="" class="img-fluid">
+              </div>
+               <div class="project-holder" style = "float:right; width: 49%;">
+                <iframe width="560" height="315" src="{{movie.youtube}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
               </div>
             </div>
           </div>
@@ -86,28 +91,31 @@
               <div class="col-md-7">
                 <div class="details-left">
                   <h2>{{movie.name}}</h2>
-                  <p>{{movie.description}}</p>
+                  <p>[줄거리]<p></p>{{movie.description}}</p>
+                  <br></br>
+                  <p>[리뷰]<p></p>{{movie.review}}</p>
                 </div>
               </div>
               <div class="offset-md-1 col-md-4">
                 <div class="details-right">
                   <ul>
-                    <li>Client</li>
+                    <li>Director</li>
                     <li class="devider">:</li>
-                    <li>Alexandre Anne</li>
+                    <li>{{movie.director}}</li>
                   </ul>
                   <ul>
-                    <li>Location</li>
+                    <li>Rating</li>
                     <li class="devider">:</li>
-                    <li>Melbourne, Victoria, Australia</li>
+                    <li><i class="far fa-star"></i>  {{movie.rating}}</li>
                   </ul>
                   <ul>
-                    <li>Date</li>
+                    <li>Open date</li>
                     <li class="devider">:</li>
-                    <li>2<sup>nd</sup> January 2018</li>
+                    <li>{{movie.open_date}}</li>
                   </ul>
                   <div class="project-btns">
-                    <a href="project-video.html" class="btn btn-invert mgR-20px">Previous</a> <a href="project-slider.html" class="btn btn-invert">Next</a>
+                    <a href="/" class="btn btn-invert mgR-20px">Back</a>
+                    <a href="" class="btn btn-invert">Next</a>
                   </div>
                 </div>
               </div>
@@ -116,19 +124,35 @@
         </div>
       </section>
 
+    <div id="disqus_thread"></div>
+    <script>
+        /**
+        *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+        *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+        /*
+        var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        };
+        */
+        (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://movietaste.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
     <footer>
       <div class="container-fluid">
             <div class="footer-info">
               <div class="footer-title">
-                <h2>JPhotography</h2>
-                <p>&copy; Copyrights 2018. All Rights Reserved.</p>
+                <h2>Movie Taste</h2>
+                <p>&copy; Copyrights 2021. All Rights Reserved.</p>
               </div>
               <div class="footer-social">
-                <a href=""><i class="fab fa-dribbble"></i></a>
-                <a href=""><i class="fab fa-behance"></i></a>
                 <a href=""><i class="fab fa-instagram"></i></a>
-                <a href=""><i class="fab fa-500px"></i></a>
-                <a href=""><i class="fab fa-flickr"></i></a>
                 <a href=""><i class="fab fa-facebook"></i></a>
                 <a href=""><i class="fab fa-twitter"></i></a>
               </div>

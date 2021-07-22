@@ -20,12 +20,11 @@ pymysql.install_as_MySQLdb()
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-n=otnhu9a#2&n#575b=_w@w^dm3_uwo=96ma&vk$y3vmjtvt2n'
+SECRET_KEY = 'django-insecure-%qe6uxar%)x4kbyy_2lma4ny+q#0_vl3kpwjq!ve*4^+!y#pr9'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -43,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'storages',
+    'taste',
 ]
 
 MIDDLEWARE = [
@@ -60,7 +60,7 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -82,8 +82,8 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'HOST': 'movietaste.c7yi8gdintnz.ap-northeast-2.rds.amazonaws.com',
-        'NAME': 'movietaste',
+        'HOST': 'dhmovietaste.cenlsjjanrxm.ap-northeast-2.rds.amazonaws.com',
+        'NAME': 'dhmovietaste',
         'USER': 'admin',
         'PASSWORD': 'qwer1234',
         'PORT': '3306',
@@ -137,14 +137,13 @@ STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
 # S3를 사용할 수 있는 곳
 # 1. Static
 
-AWS_ACCESS_KEY_ID = 'AKIAVZVBHLR5QO7XVGB2'
-AWS_SECRET_ACCESS_KEY = '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'
+AWS_ACCESS_KEY_ID = 'AKIAV3KINSRMTYY7X433'
+AWS_SECRET_ACCESS_KEY = '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'
 AWS_REGION = 'ap-northeast-2'
-AWS_STORAGE_BUCKET_NAME = 'movietaste'
+AWS_STORAGE_BUCKET_NAME = 'dhmovietaste'
 
 AWS_S3_CUSTOM_DOMAIN = '%s.s3.%s.amazonaws.com' % (AWS_STORAGE_BUCKET_NAME, AWS_REGION)
 
@@ -159,3 +158,5 @@ STATIC_URL = 'http://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 DEFAULT_FILE_STORAGE = 'config.asset_storage.MediaStorage'
+
+STATICFILES_DIRS = ( os.path.join('static'), )
