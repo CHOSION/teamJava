@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from django import forms
 
 # Create your models here.
 class Category(models.Model):
@@ -44,3 +45,4 @@ class Movie(models.Model):
 
     def get_absolute_url(self):
         return reverse('taste:movie_detail', args=[self.id, self.slug])
+
